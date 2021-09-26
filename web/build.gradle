@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+application {
+    mainClass = 'com.builders.web.HelloServlet'
+}
+
+repositories {
+    mavenCentral()
+}
+war {
+    enabled=true
+}
+
+dependencies {
+    implementation project(':admin')
+    implementation project(':utils')
+    implementation project(':services')
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.0'
+    implementation group: 'org.glassfish', name: 'javax.servlet', version: '3.1.1'
+    testImplementation group: 'junit', name: 'junit', version: '4.13.1'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.8.0'
+}
+test {
+    useJUnit()
+}
+task wrapper(type: Wrapper) {
+    gradleVersion = "1.12"
+}

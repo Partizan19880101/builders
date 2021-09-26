@@ -1,0 +1,14 @@
+# Package Files
+*.jar
+*.war
+
+# Maven Files
+target/
+test-output/
+/out/
+build/
+.gradle/
+
+# Idea Files
+.idea/
+.iml

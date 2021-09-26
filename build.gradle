@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+version = '1.0.0'
+java {
+    sourceCompatibility = JavaVersion.VERSION_15
+    targetCompatibility = JavaVersion.VERSION_15
+}
+
+// tag::repositories[]
+repositories {
+    mavenLocal()
+}
+
+
+// tag::dependencies[]
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+dependencies {
+    compile project(':admin')
+    compile project(':services')
+    compile project(':utils')
+    compile project(':web')
+}
+// end::dependencies[]
+
+// tag::wrapper[]
+tasks.named('wrapper') {
+    distributionType = Wrapper.DistributionType.ALL
+}
+// end::wrapper[]
